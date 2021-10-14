@@ -1,6 +1,6 @@
 package com.achao.srb.core.mapper;
 
-import com.achao.srb.core.pojo.TransFlow;
+import com.achao.srb.core.pojo.entity.TransFlow;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

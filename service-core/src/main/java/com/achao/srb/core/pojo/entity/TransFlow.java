@@ -1,5 +1,6 @@
-package com.achao.srb.core.pojo;
+package com.achao.srb.core.pojo.entity;
 
+import java.math.BigDecimal;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
@@ -13,7 +14,7 @@ import lombok.EqualsAndHashCode;
 
 /**
  * <p>
- * 数据字典
+ * 交易流水表
  * </p>
  *
  * @author achao
@@ -21,26 +22,35 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@ApiModel(value="Dict对象", description="数据字典")
-public class Dict implements Serializable {
+@ApiModel(value="TransFlow对象", description="交易流水表")
+public class TransFlow implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "id")
+    @ApiModelProperty(value = "编号")
       @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
-    @ApiModelProperty(value = "上级id")
-    private Long parentId;
+    @ApiModelProperty(value = "用户id")
+    private Long userId;
 
-    @ApiModelProperty(value = "名称")
-    private String name;
+    @ApiModelProperty(value = "用户名称")
+    private String userName;
 
-    @ApiModelProperty(value = "值")
-    private Integer value;
+    @ApiModelProperty(value = "交易单号")
+    private String transNo;
 
-    @ApiModelProperty(value = "编码")
-    private String dictCode;
+    @ApiModelProperty(value = "交易类型（1：充值 2：提现 3：投标 4：投资回款 ...）")
+    private Integer transType;
+
+    @ApiModelProperty(value = "交易类型名称")
+    private String transTypeName;
+
+    @ApiModelProperty(value = "交易金额")
+    private BigDecimal transAmount;
+
+    @ApiModelProperty(value = "备注")
+    private String memo;
 
     @ApiModelProperty(value = "创建时间")
     private LocalDateTime createTime;
@@ -48,7 +58,7 @@ public class Dict implements Serializable {
     @ApiModelProperty(value = "更新时间")
     private LocalDateTime updateTime;
 
-    @ApiModelProperty(value = "删除标记（0:不可用 1:可用）")
+    @ApiModelProperty(value = "逻辑删除(1:已删除，0:未删除)")
     @TableField("is_deleted")
     @TableLogic
     private Boolean deleted;

@@ -1,6 +1,6 @@
 package com.achao.srb.core.service.impl;
 
-import com.achao.srb.core.pojo.UserInfo;
+import com.achao.srb.core.pojo.entity.UserInfo;
 import com.achao.srb.core.mapper.UserInfoMapper;
 import com.achao.srb.core.service.UserInfoService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

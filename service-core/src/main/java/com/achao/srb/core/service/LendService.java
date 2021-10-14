@@ -1,6 +1,6 @@
 package com.achao.srb.core.service;
 
-import com.achao.srb.core.pojo.Lend;
+import com.achao.srb.core.pojo.entity.Lend;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

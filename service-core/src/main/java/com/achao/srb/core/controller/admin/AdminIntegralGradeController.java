@@ -4,7 +4,7 @@ package com.achao.srb.core.controller.admin;
 import com.achao.common.exception.Assert;
 import com.achao.common.result.ResponseEnum;
 import com.achao.common.result.ResponseResult;
-import com.achao.srb.core.pojo.IntegralGrade;
+import com.achao.srb.core.pojo.entity.IntegralGrade;
 import com.achao.srb.core.service.IntegralGradeService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -86,5 +86,7 @@ public class AdminIntegralGradeController {
             return ResponseResult.error().message("更新失败");
         }
     }
+
+
 }
 

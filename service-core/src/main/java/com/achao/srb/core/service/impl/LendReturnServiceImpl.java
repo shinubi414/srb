@@ -1,6 +1,6 @@
 package com.achao.srb.core.service.impl;
 
-import com.achao.srb.core.pojo.LendReturn;
+import com.achao.srb.core.pojo.entity.LendReturn;
 import com.achao.srb.core.mapper.LendReturnMapper;
 import com.achao.srb.core.service.LendReturnService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

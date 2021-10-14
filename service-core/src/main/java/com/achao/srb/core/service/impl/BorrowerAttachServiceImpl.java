@@ -1,6 +1,6 @@
 package com.achao.srb.core.service.impl;
 
-import com.achao.srb.core.pojo.BorrowerAttach;
+import com.achao.srb.core.pojo.entity.BorrowerAttach;
 import com.achao.srb.core.mapper.BorrowerAttachMapper;
 import com.achao.srb.core.service.BorrowerAttachService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

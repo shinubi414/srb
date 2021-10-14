@@ -1,4 +1,4 @@
-package com.achao.srb.core.pojo;
+package com.achao.srb.core.pojo.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -13,7 +13,7 @@ import lombok.EqualsAndHashCode;
 
 /**
  * <p>
- * 借款人上传资源表
+ * 数据字典
  * </p>
  *
  * @author achao
@@ -21,26 +21,26 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@ApiModel(value="BorrowerAttach对象", description="借款人上传资源表")
-public class BorrowerAttach implements Serializable {
+@ApiModel(value="Dict对象", description="数据字典")
+public class Dict implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "编号")
+    @ApiModelProperty(value = "id")
       @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
-    @ApiModelProperty(value = "借款人id")
-    private Long borrowerId;
+    @ApiModelProperty(value = "上级id")
+    private Long parentId;
 
-    @ApiModelProperty(value = "图片类型（idCard1：身份证正面，idCard2：身份证反面，house：房产证，car：车）")
-    private String imageType;
+    @ApiModelProperty(value = "名称")
+    private String name;
 
-    @ApiModelProperty(value = "图片路径")
-    private String imageUrl;
+    @ApiModelProperty(value = "值")
+    private Integer value;
 
-    @ApiModelProperty(value = "图片名称")
-    private String imageName;
+    @ApiModelProperty(value = "编码")
+    private String dictCode;
 
     @ApiModelProperty(value = "创建时间")
     private LocalDateTime createTime;
@@ -48,10 +48,14 @@ public class BorrowerAttach implements Serializable {
     @ApiModelProperty(value = "更新时间")
     private LocalDateTime updateTime;
 
-    @ApiModelProperty(value = "逻辑删除(1:已删除，0:未删除)")
+    @ApiModelProperty(value = "删除标记（0:不可用 1:可用）")
     @TableField("is_deleted")
     @TableLogic
     private Boolean deleted;
+
+    @ApiModelProperty(value = "是否包含子节点")
+    @TableField(exist = false)//在数据库表中忽略此列
+    private boolean hasChildren;
 
 
 }

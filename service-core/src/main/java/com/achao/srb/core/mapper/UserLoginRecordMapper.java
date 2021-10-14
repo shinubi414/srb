@@ -1,6 +1,6 @@
 package com.achao.srb.core.mapper;
 
-import com.achao.srb.core.pojo.UserLoginRecord;
+import com.achao.srb.core.pojo.entity.UserLoginRecord;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

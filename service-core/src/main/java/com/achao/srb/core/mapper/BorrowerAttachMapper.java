@@ -1,6 +1,6 @@
 package com.achao.srb.core.mapper;
 
-import com.achao.srb.core.pojo.BorrowerAttach;
+import com.achao.srb.core.pojo.entity.BorrowerAttach;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

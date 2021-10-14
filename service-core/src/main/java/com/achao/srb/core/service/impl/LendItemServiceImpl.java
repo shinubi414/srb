@@ -1,6 +1,6 @@
 package com.achao.srb.core.service.impl;
 
-import com.achao.srb.core.pojo.LendItem;
+import com.achao.srb.core.pojo.entity.LendItem;
 import com.achao.srb.core.mapper.LendItemMapper;
 import com.achao.srb.core.service.LendItemService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

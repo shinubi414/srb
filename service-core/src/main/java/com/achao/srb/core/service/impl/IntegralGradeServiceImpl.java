@@ -1,6 +1,6 @@
 package com.achao.srb.core.service.impl;
 
-import com.achao.srb.core.pojo.IntegralGrade;
+import com.achao.srb.core.pojo.entity.IntegralGrade;
 import com.achao.srb.core.mapper.IntegralGradeMapper;
 import com.achao.srb.core.service.IntegralGradeService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

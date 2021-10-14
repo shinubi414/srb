@@ -1,6 +1,6 @@
 package com.achao.srb.core.service.impl;
 
-import com.achao.srb.core.pojo.UserIntegral;
+import com.achao.srb.core.pojo.entity.UserIntegral;
 import com.achao.srb.core.mapper.UserIntegralMapper;
 import com.achao.srb.core.service.UserIntegralService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

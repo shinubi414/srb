@@ -1,6 +1,6 @@
 package com.achao.srb.core.service.impl;
 
-import com.achao.srb.core.pojo.TransFlow;
+import com.achao.srb.core.pojo.entity.TransFlow;
 import com.achao.srb.core.mapper.TransFlowMapper;
 import com.achao.srb.core.service.TransFlowService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

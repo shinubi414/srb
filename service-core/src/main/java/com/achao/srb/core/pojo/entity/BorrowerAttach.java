@@ -1,6 +1,5 @@
-package com.achao.srb.core.pojo;
+package com.achao.srb.core.pojo.entity;
 
-import java.math.BigDecimal;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
@@ -14,7 +13,7 @@ import lombok.EqualsAndHashCode;
 
 /**
  * <p>
- * 交易流水表
+ * 借款人上传资源表
  * </p>
  *
  * @author achao
@@ -22,8 +21,8 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@ApiModel(value="TransFlow对象", description="交易流水表")
-public class TransFlow implements Serializable {
+@ApiModel(value="BorrowerAttach对象", description="借款人上传资源表")
+public class BorrowerAttach implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -31,26 +30,17 @@ public class TransFlow implements Serializable {
       @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
-    @ApiModelProperty(value = "用户id")
-    private Long userId;
+    @ApiModelProperty(value = "借款人id")
+    private Long borrowerId;
 
-    @ApiModelProperty(value = "用户名称")
-    private String userName;
+    @ApiModelProperty(value = "图片类型（idCard1：身份证正面，idCard2：身份证反面，house：房产证，car：车）")
+    private String imageType;
 
-    @ApiModelProperty(value = "交易单号")
-    private String transNo;
+    @ApiModelProperty(value = "图片路径")
+    private String imageUrl;
 
-    @ApiModelProperty(value = "交易类型（1：充值 2：提现 3：投标 4：投资回款 ...）")
-    private Integer transType;
-
-    @ApiModelProperty(value = "交易类型名称")
-    private String transTypeName;
-
-    @ApiModelProperty(value = "交易金额")
-    private BigDecimal transAmount;
-
-    @ApiModelProperty(value = "备注")
-    private String memo;
+    @ApiModelProperty(value = "图片名称")
+    private String imageName;
 
     @ApiModelProperty(value = "创建时间")
     private LocalDateTime createTime;

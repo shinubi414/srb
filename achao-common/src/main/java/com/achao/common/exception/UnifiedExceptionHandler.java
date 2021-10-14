@@ -26,13 +26,13 @@ public class UnifiedExceptionHandler {
 
     @ExceptionHandler(value = Exception.class)
     public ResponseResult exceptionHandler(Exception e){
-        log.info(e.getMessage());
+        log.error(e.getMessage(),e);
         return ResponseResult.error();
     }
 
     @ExceptionHandler(value = BusinessException.class)
     public ResponseResult exceptionHandler(BusinessException e){
-        log.info(e.getMessage());
+        log.error(e.getMessage(), e);
         return ResponseResult.error().message(e.getMessage()).code(e.getCode());
     }
 

@@ -1,6 +1,6 @@
 package com.achao.srb.core.service;
 
-import com.achao.srb.core.pojo.UserIntegral;
+import com.achao.srb.core.pojo.entity.UserIntegral;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

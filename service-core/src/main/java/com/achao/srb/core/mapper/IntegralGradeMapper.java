@@ -1,6 +1,6 @@
 package com.achao.srb.core.mapper;
 
-import com.achao.srb.core.pojo.IntegralGrade;
+import com.achao.srb.core.pojo.entity.IntegralGrade;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

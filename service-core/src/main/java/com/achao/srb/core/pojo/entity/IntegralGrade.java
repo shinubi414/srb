@@ -1,19 +1,21 @@
-package com.achao.srb.core.pojo;
+package com.achao.srb.core.pojo.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import java.time.LocalDateTime;
-import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableField;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
 /**
  * <p>
- * 用户绑定表
+ * 积分等级表
  * </p>
  *
  * @author achao
@@ -21,8 +23,8 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@ApiModel(value="UserBind对象", description="用户绑定表")
-public class UserBind implements Serializable {
+@ApiModel(value="IntegralGrade对象", description="积分等级表")
+public class IntegralGrade implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -30,29 +32,14 @@ public class UserBind implements Serializable {
       @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
-    @ApiModelProperty(value = "用户id")
-    private Long userId;
+    @ApiModelProperty(value = "积分区间开始")
+    private Integer integralStart;
 
-    @ApiModelProperty(value = "用户姓名")
-    private String name;
+    @ApiModelProperty(value = "积分区间结束")
+    private Integer integralEnd;
 
-    @ApiModelProperty(value = "身份证号")
-    private String idCard;
-
-    @ApiModelProperty(value = "银行卡号")
-    private String bankNo;
-
-    @ApiModelProperty(value = "银行类型")
-    private String bankType;
-
-    @ApiModelProperty(value = "手机号")
-    private String mobile;
-
-    @ApiModelProperty(value = "绑定账户协议号")
-    private String bindCode;
-
-    @ApiModelProperty(value = "状态")
-    private Integer status;
+    @ApiModelProperty(value = "借款额度")
+    private BigDecimal borrowAmount;
 
     @ApiModelProperty(value = "创建时间")
     private LocalDateTime createTime;

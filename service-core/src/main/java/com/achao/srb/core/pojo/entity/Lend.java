@@ -1,4 +1,4 @@
-package com.achao.srb.core.pojo;
+package com.achao.srb.core.pojo.entity;
 
 import java.math.BigDecimal;
 import com.baomidou.mybatisplus.annotation.IdType;

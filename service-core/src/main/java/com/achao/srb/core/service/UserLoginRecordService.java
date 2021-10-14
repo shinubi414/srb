@@ -1,6 +1,6 @@
 package com.achao.srb.core.service;
 
-import com.achao.srb.core.pojo.UserLoginRecord;
+import com.achao.srb.core.pojo.entity.UserLoginRecord;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -13,4 +13,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface UserLoginRecordService extends IService<UserLoginRecord> {
 
+    void sendSMS();
 }
