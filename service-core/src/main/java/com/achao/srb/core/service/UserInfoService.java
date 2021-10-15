@@ -1,6 +1,7 @@
 package com.achao.srb.core.service;
 
 import com.achao.srb.core.pojo.entity.UserInfo;
+import com.achao.srb.core.pojo.vo.RegisterVO;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -13,4 +14,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface UserInfoService extends IService<UserInfo> {
 
+    void register(RegisterVO registerVO);
 }
