@@ -9,7 +9,6 @@ import com.achao.srb.sms.service.SMSService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
