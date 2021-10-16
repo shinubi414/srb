@@ -5,16 +5,20 @@ import com.achao.common.exception.Assert;
 import com.achao.common.result.ResponseEnum;
 import com.achao.common.result.ResponseResult;
 import com.achao.common.utils.RegexValidateUtils;
+import com.achao.srb.base.utils.JwtUtils;
+import com.achao.srb.core.pojo.vo.LoginVO;
 import com.achao.srb.core.pojo.vo.RegisterVO;
+import com.achao.srb.core.pojo.vo.UserInfoVO;
 import com.achao.srb.core.service.UserInfoService;
-import com.baomidou.mybatisplus.extension.api.R;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * <p>
@@ -62,5 +66,40 @@ public class UserInfoController {
         //注册
         userInfoService.register(registerVO);
         return ResponseResult.ok().message("注册成功");
+    }
+
+    @ApiOperation("会员登录")
+    @PostMapping("/login")
+    public ResponseResult login(@RequestBody LoginVO loginVO, HttpServletRequest request) {
+
+        String mobile = loginVO.getMobile();
+        String password = loginVO.getPassword();
+        Assert.notEmpty(mobile, ResponseEnum.MOBILE_NULL_ERROR);
+        Assert.notEmpty(password, ResponseEnum.PASSWORD_NULL_ERROR);
+
+        String ip = request.getRemoteAddr();
+        UserInfoVO userInfoVO = userInfoService.login(loginVO, ip);
+
+        return ResponseResult.ok().data("userInfo", userInfoVO);
+    }
+
+    @ApiOperation("校验令牌")
+    @GetMapping("/checkToken")
+    public ResponseResult checkToken(HttpServletRequest request){
+
+        String token = request.getHeader("token");
+        boolean isTrue = JwtUtils.checkToken(token);
+
+        if (isTrue){
+            return ResponseResult.ok();
+        }else {
+            return ResponseResult.setResult(ResponseEnum.LOGIN_AUTH_ERROR);
+        }
+    }
+
+    @ApiOperation("校验手机是否被注册")
+    @GetMapping("/checkMobile/{mobile}")
+    public boolean checkMobile(@ApiParam("手机号") @PathVariable String mobile){
+        return userInfoService.checkMobile(mobile);
     }
 }

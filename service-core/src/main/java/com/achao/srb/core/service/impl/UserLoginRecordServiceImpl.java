@@ -3,10 +3,12 @@ package com.achao.srb.core.service.impl;
 import com.achao.srb.core.pojo.entity.UserLoginRecord;
 import com.achao.srb.core.mapper.UserLoginRecordMapper;
 import com.achao.srb.core.service.UserLoginRecordService;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 
 
 /**
@@ -21,4 +23,14 @@ import org.springframework.stereotype.Service;
 public class UserLoginRecordServiceImpl extends ServiceImpl<UserLoginRecordMapper, UserLoginRecord> implements UserLoginRecordService {
 
 
+    @Override
+    public List<UserLoginRecord> listTop50(Long userId) {
+        QueryWrapper<UserLoginRecord> userLoginRecordQueryWrapper = new QueryWrapper<>();
+        userLoginRecordQueryWrapper
+                .eq("user_id", userId)
+                .orderByDesc("id")
+                .last("limit 50");
+        List<UserLoginRecord> userLoginRecords = baseMapper.selectList(userLoginRecordQueryWrapper);
+        return userLoginRecords;
+    }
 }

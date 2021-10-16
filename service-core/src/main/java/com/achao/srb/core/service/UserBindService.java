@@ -1,6 +1,7 @@
 package com.achao.srb.core.service;
 
 import com.achao.srb.core.pojo.entity.UserBind;
+import com.achao.srb.core.pojo.vo.UserBindVO;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -13,4 +14,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface UserBindService extends IService<UserBind> {
 
+    String commitBindUser(UserBindVO userBindVO, Long userId);
 }
