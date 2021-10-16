@@ -13,5 +13,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface UserLoginRecordService extends IService<UserLoginRecord> {
 
-    void sendSMS(String phoneNum);
+    List<UserLoginRecord> listTop50(Long userId);
+
 }
