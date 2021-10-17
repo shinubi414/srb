@@ -3,19 +3,21 @@ package com.achao.srb.core.controller.api;
 
 import com.achao.common.result.ResponseResult;
 import com.achao.srb.base.utils.JwtUtils;
+import com.achao.srb.core.hfb.RequestHelper;
 import com.achao.srb.core.pojo.vo.UserBindVO;
 import com.achao.srb.core.service.UserBindService;
+import com.alibaba.fastjson.JSON;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 /**
  * <p>
@@ -45,6 +47,24 @@ public class UserBindController {
 
         return ResponseResult.ok().data("formStr",formStr);
 
+    }
+
+
+    @ApiOperation("账户绑定异步回调")
+    @PostMapping("/notify")
+    public String notify(HttpServletRequest request) {
+        Map<String, Object> paramMap = RequestHelper.switchMap(request.getParameterMap());
+        log.info("用户账号绑定异步回调：" + JSON.toJSONString(paramMap));
+
+        //校验签名
+        if(!RequestHelper.isSignEquals(paramMap)) {
+            log.error("用户账号绑定异步回调签名错误：" + JSON.toJSONString(paramMap));
+            return "fail";
+        }
+
+        //修改绑定状态
+        userBindService.notify(paramMap);
+        return "success";
     }
 }
 

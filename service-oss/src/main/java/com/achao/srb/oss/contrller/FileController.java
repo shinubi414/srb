@@ -7,6 +7,7 @@ import com.achao.srb.oss.service.FileService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -24,7 +25,7 @@ public class FileController {
 
     @ApiOperation("文件上传")
     @PostMapping("/upload")
-    public ResponseResult upload(@ApiParam(value = "文件",required = true)@RequestParam("file")MultipartFile file,@ApiParam(value = "模块",required = true)@RequestParam("module")String module){
+    public ResponseResult upload(@ApiParam(value = "文件",required = true)@RequestParam("file")MultipartFile file, @ApiParam(value = "模块",required = true)@RequestParam("module")String module){
         try {
             InputStream inputStream = file.getInputStream();
             String originalFilename = file.getOriginalFilename();
